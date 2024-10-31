@@ -1,18 +1,21 @@
 package org.BankCalculator.Services;
 
 import org.BankCalculator.Interfaces.IBankomat;
+import org.BankCalculator.Models.Bankomat;
 
 public class ATMBaseBankomat implements IBankomat {
     @Override
-    public Double RemoveAmount(double sum) {
+    public Double RemoveAmount(Bankomat atm, double sum) {
         System.out.println("Korisnik uzima novce sa bankomata ");
-        return -sum;
+        atm.setAmount(atm.getAmount()-sum);
+        return atm.getAmount();
     }
 
     @Override
-    public Double AddAmount(double sum) {
+    public Double AddAmount(Bankomat atm, double sum) {
         System.out.println("Administrator dodaje novce na bankomat ");
-        return sum;
+        atm.setAmount(atm.getAmount()+sum);
+        return atm.getAmount();
     }
 
     @Override
@@ -23,10 +26,5 @@ public class ATMBaseBankomat implements IBankomat {
     @Override
     public String WrongPasswordMessage() {
         return "Wrong PIN - Pogresan PIN";
-    }
-
-    @Override
-    public void SetLanguage(String lng) {
-        System.out.println("Selected "+lng);
     }
 }

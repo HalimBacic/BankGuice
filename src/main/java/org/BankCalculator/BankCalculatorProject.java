@@ -1,9 +1,9 @@
 package org.BankCalculator;
 
-import org.BankCalculator.Controls.ATMBankomat;
-import org.BankCalculator.Controls.ATMBetterBankomat;
-import org.BankCalculator.Controls.BankCalculator;
-import org.BankCalculator.Controls.SimpleCredit;
+import org.BankCalculator.Controls.ATMBankomatControl;
+import org.BankCalculator.Controls.ATMBetterBankomatControl;
+import org.BankCalculator.Controls.BankCalculatorControl;
+import org.BankCalculator.Controls.SimpleCreditControl;
 import org.BankCalculator.Settings.AppConfig;
 
 public class BankCalculatorProject {
@@ -11,9 +11,10 @@ public class BankCalculatorProject {
     {
         AppConfig.Initialize();
         System.out.println("Bank calculator started...");
-        BankCalculator bankCalculator = AppConfig.GetBankCalculatorInstance();
-        ATMBetterBankomat betterbankomat = AppConfig.GetATMBetterBankomat();
-        ATMBankomat bankomat = AppConfig.GetATMBankomat();
-        SimpleCredit simpleCredit = AppConfig.GetSimpleCredit();
+        BankCalculatorControl bankCalculator = AppConfig.GetBankCalculatorInstance();
+        ATMBetterBankomatControl betterbankomat = AppConfig.GetATMBetterBankomat();
+        ATMBankomatControl bankomat = AppConfig.GetATMBankomat();
+        SimpleCreditControl simpleCredit = AppConfig.GetSimpleCredit();
+        System.out.println("Program finished.");
     }
 }

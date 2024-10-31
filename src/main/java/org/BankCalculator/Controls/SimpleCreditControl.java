@@ -1,11 +1,15 @@
 package org.BankCalculator.Controls;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import org.BankCalculator.Interfaces.ICreditCalculator;
 import org.BankCalculator.Services.FixCreditCalculator;
 
-public class SimpleCredit {
-    private FixCreditCalculator creditCalculator;
+public class SimpleCreditControl {
+    private ICreditCalculator creditCalculator;
 
-    public SimpleCredit(FixCreditCalculator creditCalculator)
+    @Inject
+    public SimpleCreditControl(@Named("FixCredit") ICreditCalculator creditCalculator)
     {
         this.creditCalculator = creditCalculator;
     }

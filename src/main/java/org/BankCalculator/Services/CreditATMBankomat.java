@@ -1,6 +1,5 @@
 package org.BankCalculator.Services;
 
-import org.BankCalculator.Controls.ATMBankomat;
 import org.BankCalculator.Interfaces.ICreditCalculator;
 
 import static java.lang.Math.pow;

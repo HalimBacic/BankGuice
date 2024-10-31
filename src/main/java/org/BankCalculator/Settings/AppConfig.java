@@ -2,10 +2,7 @@ package org.BankCalculator.Settings;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import org.BankCalculator.Controls.ATMBankomat;
-import org.BankCalculator.Controls.ATMBetterBankomat;
-import org.BankCalculator.Controls.BankCalculator;
-import org.BankCalculator.Controls.SimpleCredit;
+import org.BankCalculator.Controls.*;
 
 public class AppConfig {
     private static Injector injector;
@@ -15,30 +12,35 @@ public class AppConfig {
         injector = Guice.createInjector(new BankModule());
     }
 
-    public static BankCalculator GetBankCalculatorInstance()
+    public static BankCalculatorControl GetBankCalculatorInstance()
     {
-        return injector.getInstance(BankCalculator.class);
+        return injector.getInstance(BankCalculatorControl.class);
     }
 
-    public static ATMBetterBankomat GetATMBetterBankomat()
+    public static ATMBetterBankomatControl GetATMBetterBankomat()
     {
         /*
         * See what will happen if change return type of argument in getInstance
         * */
-        return injector.getInstance(ATMBetterBankomat.class);
+        return injector.getInstance(ATMBetterBankomatControl.class);
     }
 
-    public static ATMBankomat GetATMBankomat()
+    public static ATMBankomatControl GetATMBankomat()
     {
-        return injector.getInstance(ATMBankomat.class);
+        return injector.getInstance(ATMBankomatControl.class);
     }
 
-    public static SimpleCredit GetSimpleCredit()
+    public static ATMEnglishControl GetATMEnglishBankomat()
+    {
+        return injector.getInstance(ATMEnglishControl.class);
+    }
+
+    public static SimpleCreditControl GetSimpleCredit()
     {
         /*
         * Check what will happen after changes in Module
         * Check what will happen after add two modules with similar settings
         * */
-        return injector.getInstance(SimpleCredit.class);
+        return injector.getInstance(SimpleCreditControl.class);
     }
 }
